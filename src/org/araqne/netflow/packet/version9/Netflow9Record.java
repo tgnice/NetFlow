@@ -4,15 +4,15 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 import org.araqne.netflow.packet.NetflowRecord;
-import org.araqne.netflow.packet.version9.fieldtype.Field;
+import org.araqne.netflow.packet.version9.packetelements.DataFlowSet;
+import org.araqne.netflow.packet.version9.packetelements.OptionTemplateField;
+import org.araqne.netflow.packet.version9.packetelements.TemplateFlowSet;
 
 public class Netflow9Record implements NetflowRecord{
 
-	private short flowSetId;
-	private short length;
-	private short templateId;
-	private short fieldCount;
-	private ArrayList<Field> fields;
+	private TemplateFlowSet templateFlow;
+	private ArrayList<DataFlowSet> dataFlowSets;
+	private OptionTemplateField optionTemplateFlow;
 		
 	@Override
 	public void parse(ByteBuffer b) {
