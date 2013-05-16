@@ -25,13 +25,14 @@ public class DataFlowSet {
 		
 		flowSetId = b.getShort();
 		length = b.getShort();
-		records = new ArrayList<Record>((length-4)/recordSize);
 		
 		for(int i=0; i<fieldTypes.size();i++){
 			recordSize += fieldTypes.get(i).getLength(); 
 		}
+		
+		records = new ArrayList<Record>((length-4)/recordSize);		
 
-		for(int i=0; i< (length-4)/recordSize;i++){
+		for(int i=0; i< records.size();i++){
 			fields = new ArrayList<Field>();
 			for(int j=0; j<fieldTypes.size();j++){
 				fields.add(mapper.getField(FieldTypes.parse(fieldTypes.get(j).getType())));
