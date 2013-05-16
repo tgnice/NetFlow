@@ -16,6 +16,9 @@ public class Netflow5Header implements NetflowHeader{
 	private byte engineId;
 	private short samplingInfo;
 	
+	public Netflow5Header(){
+		
+	}
 	@Override
 	public void parse(ByteBuffer b) {
 		version = b.getShort();

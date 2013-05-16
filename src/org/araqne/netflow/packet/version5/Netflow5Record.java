@@ -27,6 +27,10 @@ public class Netflow5Record implements NetflowRecord {
 	private byte destinationMaskBitsCount;
 	private short twoPadBytes;
 
+	public Netflow5Record(){
+		
+	}
+	
 	@Override
 	public void parse(ByteBuffer b) {
 		sourceIpAddr = b.getInt();

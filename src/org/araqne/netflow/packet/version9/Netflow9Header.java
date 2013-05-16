@@ -13,6 +13,10 @@ public class Netflow9Header implements NetflowHeader {
 	private int sequenceNumber;
 	private int sourceId;
 
+	public Netflow9Header(){
+		
+	}
+	
 	@Override
 	public void parse(ByteBuffer b) {
 		version = b.getShort();
