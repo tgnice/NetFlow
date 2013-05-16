@@ -3,6 +3,9 @@ package org.araqne.netflow.packet.version9.packetelements;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
+import org.araqne.netflow.packet.version9.FieldTypeMapper;
+import org.araqne.netflow.packet.version9.FieldTypes;
+
 /**
  * @author tgnice@nchovy.com
  *
@@ -11,22 +14,30 @@ public class DataFlowSet {
 
 	private short flowSetId;
 	private short length;
-	private ArrayList<Field> fields;
+	private ArrayList<Record> records;
 	private short[] padding;
 	
 	public void parse(ByteBuffer b , ArrayList<RecordField> fieldTypes){
+		FieldTypeMapper mapper = new FieldTypeMapper();
+		ArrayList<Field> fields;
 		int recordSize=0;
 		int paddingSize=0;
 		
 		flowSetId = b.getShort();
 		length = b.getShort();
+		records = new ArrayList<Record>((length-4)/recordSize);
 		
 		for(int i=0; i<fieldTypes.size();i++){
 			recordSize += fieldTypes.get(i).getLength(); 
 		}
 
 		for(int i=0; i< (length-4)/recordSize;i++){
-			//TODO
+			fields = new ArrayList<Field>();
+			for(int j=0; j<fieldTypes.size();j++){
+				fields.add(mapper.getField(FieldTypes.parse(fieldTypes.get(j).getType())));
+				fields.get(j).parse(b , fieldTypes.get(j).getLength());
+			}
+			records.get(i).setFields(fields);
 		}
 		
 		paddingSize = 4 - (length%4);
@@ -50,14 +61,6 @@ public class DataFlowSet {
 
 	public void setLength(short length) {
 		this.length = length;
-	}
-
-	public ArrayList<Field> getFields() {
-		return fields;
-	}
-
-	public void setFields(ArrayList<Field> fields) {
-		this.fields = fields;
 	}
 
 	public short[] getPadding() {

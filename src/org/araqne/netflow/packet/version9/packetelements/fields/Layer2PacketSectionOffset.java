@@ -4,12 +4,8 @@ import java.nio.ByteBuffer;
 
 import org.araqne.netflow.packet.version9.packetelements.Field;
 
-public class Layer2PacketSectionOffset implements Field {
+public class Layer2PacketSectionOffset extends Field {
 
-	@Override
-	public void parse(ByteBuffer b) {
-		// TODO Auto-generated method stub
 
-	}
 
 }

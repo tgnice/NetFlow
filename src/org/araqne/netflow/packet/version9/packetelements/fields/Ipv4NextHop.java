@@ -4,12 +4,8 @@ import java.nio.ByteBuffer;
 
 import org.araqne.netflow.packet.version9.packetelements.Field;
 
-public class Ipv4NextHop implements Field {
+public class Ipv4NextHop extends Field  {
 
-	@Override
-	public void parse(ByteBuffer b) {
-		// TODO Auto-generated method stub
 
-	}
 
 }

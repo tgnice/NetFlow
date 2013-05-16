@@ -1,5 +1,8 @@
 package org.araqne.netflow.packet.version9.packetelements.optiondatarecordfield;
 
-public class Template implements ScopeOptionField{
+import java.nio.ByteBuffer;
+
+public class Template extends ScopeOptionField{
+
 
 }

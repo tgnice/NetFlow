@@ -4,12 +4,8 @@ import java.nio.ByteBuffer;
 
 import org.araqne.netflow.packet.version9.packetelements.Field;
 
-public class FieldDeprecated implements Field {
+public class FieldDeprecated extends Field {
 
-	@Override
-	public void parse(ByteBuffer b) {
-		// TODO Auto-generated method stub
 
-	}
 
 }

@@ -4,12 +4,8 @@ import java.nio.ByteBuffer;
 
 import org.araqne.netflow.packet.version9.packetelements.Field;
 
-public class Ipv4DstAddr implements Field {
+public class Ipv4DstAddr extends Field {
 
-	@Override
-	public void parse(ByteBuffer b) {
-		// TODO Auto-generated method stub
 
-	}
 
 }

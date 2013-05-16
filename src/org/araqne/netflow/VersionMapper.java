@@ -6,7 +6,7 @@ import org.araqne.netflow.parser.VersionParser;
 
 public class VersionMapper {
 
-	VersionParser getParser(short version){
+	public VersionParser getParser(short version){
 		switch(version){
 			case 0x05:
 				return new Version5Parser();

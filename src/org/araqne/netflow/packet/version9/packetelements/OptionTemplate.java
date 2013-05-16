@@ -45,6 +45,7 @@ public class OptionTemplate {
 			optionFields.get(i).setType(b.getShort());
 			optionFields.get(i).setLength(b.getShort());
 		}
+		
 		padLength = 4 - (length%4);
 		if(padLength !=0){
 			pad = new byte[padLength];

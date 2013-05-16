@@ -27,6 +27,6 @@ public class Netflow9Record implements NetflowRecord {
 		templateFlow.parse(b);
 		dataFlowSet.parse(b , templateFlow.getFields());
 		optionTemplateFlow.parse(b);
-		optionDataRecord.parse(b);
+		optionDataRecord.parse(b , optionTemplateFlow.getScopefields() , optionTemplateFlow.getOptionfields());
 	}
 }

@@ -4,12 +4,7 @@ import java.nio.ByteBuffer;
 
 import org.araqne.netflow.packet.version9.packetelements.Field;
 
-public class SrcVLAN implements Field {
+public class SrcVLAN extends Field {
 
-	@Override
-	public void parse(ByteBuffer b) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
